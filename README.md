@@ -11,6 +11,11 @@ Django centralised logging using Elasticsearch, Logstash, Kibana (ELK) + Filebea
 
 ## Running the project
 
+The project is split into the following two apps:  
+  - blog - for our Django models, serializers, and ViewSets,
+  - search - for Elasticsearch documents, indexes, and queries.
+
+#### How to start it?
 1. Fork/Clone
 
 2. [Install Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html) if you haven't already and make sure it is running on port `9200` (check 'Remarks' for more information).
@@ -86,5 +91,4 @@ Django centralised logging using Elasticsearch, Logstash, Kibana (ELK) + Filebea
       "tagline" : "You Know, for Search"
     }
   ```
-
-## The project is based mainly on [Testdriven.io](https://testdriven.io/blog/django-drf-elasticsearch/) tutorial.  
+2. The project is based mainly on [Testdriven.io](https://testdriven.io/blog/django-drf-elasticsearch/) tutorial.  

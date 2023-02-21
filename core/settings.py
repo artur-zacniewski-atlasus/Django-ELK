@@ -140,3 +140,40 @@ ELASTICSEARCH_DSL = {
         'hosts': 'localhost:9200'
     },
 }
+
+# Logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simple': {
+            'format': '[%(asctime)s] %(levelname)s|%(name)s|%(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S',
+        },
+    },
+    'handlers': {
+        'applogfile': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': Path(BASE_DIR).resolve().joinpath('logs', 'app.log'),
+            'maxBytes': 1024*1024*15,  # 15MB
+            'backupCount': 10,
+            'formatter': 'simple',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        }
+    },
+    'loggers': {
+        'blog': {
+            'handlers': ['applogfile', 'console'],
+            'level': 'DEBUG',
+        },
+        'search': {
+            'handlers': ['applogfile', 'console'],
+            'level': 'DEBUG',
+        }
+    }
+}
